@@ -1,0 +1,24 @@
+site_name: Saml2Core
+repo_url: https://github.com/squidfunk/mkdocs-material
+repo_name: squidfunk/mkdocs-material
+
+extra:
+  version:
+    provider: mike
+    default: stable
+theme:
+  name: material
+  features:
+    - navigation.path
+  palette: 
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
