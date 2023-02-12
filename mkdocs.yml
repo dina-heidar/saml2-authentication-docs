@@ -10,6 +10,7 @@ theme:
   name: material
   features:
     - navigation.path
+    - content.code.copy
   palette: 
     # Palette toggle for light mode
     - scheme: default
@@ -24,6 +25,10 @@ theme:
         name: Switch to light mode
 
 markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid

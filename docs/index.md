@@ -16,6 +16,18 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
 
+## Install 
+
+``` cs title="Program.cs" hl_lines="3 4 6"
+builder.Services.AddSam2();
+
+public class Car()
+{
+    public string Model {get;set;}
+}
+```
+
+
 ## Sequence 
 ``` mermaid
 sequenceDiagram
