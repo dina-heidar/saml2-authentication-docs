@@ -2,9 +2,7 @@ site_name: Saml2Core
 repo_url: https://github.com/squidfunk/mkdocs-material
 repo_name: squidfunk/mkdocs-material
 copyright: Copyright &copy; 2023 Dina Heidar
-extra:
-  version:
-    provider: mike 
+extra:  
   social:
     - icon: fontawesome/brands/mastodon
       link: https://fosstodon.org/@squidfunk
