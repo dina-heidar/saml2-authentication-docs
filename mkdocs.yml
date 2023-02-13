@@ -14,6 +14,7 @@ extra:
 
 theme:
   name: material
+  language: en
   font:
     text: Public Sans
   features:
@@ -54,7 +55,11 @@ markdown_extensions:
 plugins:
    - search
    - with-pdf:
-      cover_subtitle: PDF created with mkdocs-with-pdf
-      # TODO: find a way to use $READTHEDOCS_OUTPUT and $READTHEDOCS_PROJECT
-      # output_path: $READTHEDOCS_OUTPUT/$READTHEDOCS_PROJECT.pdf
-      output_path: ../pdf/saml2core.pdf
+      #cover_title:
+      cover_subtitle: Technical documentation that just works      
+      back_cover: true
+      toc_level: 2      
+      two_columns_level: 3
+      render_js: true
+      #headless_chrome_path: google-chrome
+      output_path: ../document.pdf     

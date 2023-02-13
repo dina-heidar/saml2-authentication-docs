@@ -1,10 +1,10 @@
 # saml2-authentication-docs
 
-Saml2Core documentation site
+## Saml2Core documentation site
 
-- mkdocs-pdf (must install these first): 
-1. (weasy)[https://doc.courtbouillon.org/weasyprint/stable/first_steps.html]
-2. (mkdocs-with-pdf)[https://pypi.org/project/mkdocs-with-pdf/0.8.0/]
+- `mkdocs-pdf` (must install these first): 
+1. [weasy](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html)
+2. [mkdocs-with-pdf](https://pypi.org/project/mkdocs-with-pdf/0.8.0/)
 
 - Sample
 
