@@ -57,9 +57,9 @@ plugins:
    - with-pdf:
       #cover_title:
       cover_subtitle: Technical documentation that just works      
-      back_cover: true
+      #back_cover: true
       toc_level: 2      
       two_columns_level: 3
-      render_js: true
+      #render_js: true
       #headless_chrome_path: google-chrome
       output_path: ../document.pdf     
