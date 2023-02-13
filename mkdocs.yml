@@ -61,5 +61,5 @@ plugins:
       toc_level: 2      
       two_columns_level: 3
       #render_js: true
-      #headless_chrome_path: google-chrome
-      output_path: ../document.pdf     
+      #headless_chrome_path: google-chrome      
+      output_path: document.pdf     
