@@ -1,25 +1,45 @@
-site_name: Saml2Core
-repo_url: https://github.com/squidfunk/mkdocs-material
-repo_name: squidfunk/mkdocs-material
+site_name: Saml2 Authentication
+repo_url: https://github.com/dina-heidar/saml2-authentication
+repo_name: dina-heidar/saml2-authentication
 copyright: Copyright &copy; 2023 Dina Heidar
 
 nav:
-  - Overview: "index.md"
+  - Home: "index.md"
+  - Getting started:
+    - Installation: getting-started.md  
+    - Usage: 
+      - MVC: usage/mvc-web.md
+      - Razor Pages: usage/razor-pages.md
+      - Blazor: usage/blazor-server.md
+  - References: "references.md"
 
 extra:  
   social:
-    - icon: fontawesome/brands/mastodon
-      link: https://fosstodon.org/@squidfunk
-      name: squidfunk on Fosstodon
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/@dina_heidar
+      name: Dina Heidar on Twitter
+    - icon: fontawesome/brands/github
+      link: https://github.com/dina-heidar
+      name: Dina Heidar on GitHub
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/dina-heidar-072b28aa
+      name: Dina Heidar on LinkedIn
 
 theme:
   name: material
+  logo: assets/logo/icon_128x128.png
+  favicon: assets/logo/icon_128x128.png
   language: en
   font:
-    text: Public Sans
+    text: Public Sans  
   features:
-    - navigation.path
+    - navigation.tabs
+    - navigation.tracking
+    - navigation.instant
+    - navigation.tabs.sticky
     - navigation.footer
+    - navigation.top
+    - toc.integrate
     - content.code.copy
   palette: 
     # Palette toggle for light mode
