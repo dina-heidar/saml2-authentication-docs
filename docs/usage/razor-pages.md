@@ -68,7 +68,7 @@ public class IndexModel : PageModel
 
 ``` html title="Login.cshtml"
 @page
-@model RazorPages.Redirect.PostBinding.Pages.LoginModel
+@model Sample.Pages.LoginModel
 @{
 }
 ```
@@ -91,7 +91,7 @@ public class LoginModel : PageModel
 
 ``` html title="Logout.cshtml"
 @page
-@model RazorPages.Redirect.PostBinding.Pages.LogoutModel
+@model Sample.Pages.LogoutModel
 @{
 }
 ```

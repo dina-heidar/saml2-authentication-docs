@@ -7,7 +7,9 @@ The NuGet package is available to download at [nuget.org](https://www.nuget.org/
 dotnet add package Saml2.Authentication
 ```
 
-## Setup
+## Setup example
+
+The code below will set up the saml2 options and will add authentication middleware to the request pipeline.
 
 ``` cs title="Program.cs" 
 
@@ -141,7 +143,15 @@ builder.Services.AddAuthentication(sharedOptions =>
 
 builder.Services.AddAuthorization();
 
+var app = builder.Build();
+
+ //code 
+
+ //UseAuthentication adds authentication middleware to the request pipeline.
+ app.UseAuthentication();
+
+ //code 
+
+app.Run();
+
 ```
-
-### Required options
-

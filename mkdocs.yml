@@ -11,7 +11,7 @@ nav:
       - MVC: usage/mvc-web.md
       - Razor Pages: usage/razor-pages.md
       - Blazor: usage/blazor-server.md
-  - References: "references.md"
+  - List of options: list-of-options.md
 
 extra:  
   social:
@@ -27,8 +27,8 @@ extra:
 
 theme:
   name: material
-  logo: assets/logo/icon_128x128.png
-  favicon: assets/logo/icon_128x128.png
+  logo: assets/icon_128x128.png
+  favicon: images/favicon.png
   language: en
   font:
     text: Public Sans  
@@ -42,18 +42,18 @@ theme:
     - toc.integrate
     - content.code.copy
     - navigation.expand
-  palette: 
-    # Palette toggle for light mode
-    - scheme: default
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-
+  palette:  
     # Palette toggle for dark mode
     - scheme: slate
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
+
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
 
 markdown_extensions:
   - attr_list
@@ -76,11 +76,13 @@ markdown_extensions:
 plugins:
    - search
    - with-pdf:
-      #cover_title:
-      cover_subtitle: Technical documentation that just works      
+      author: Dina Heidar
+      cover_title: Saml2 Authentication
+      cover_subtitle: Technical Documentation   
+      cover_logo: ./assets/icon_500x500.png
       #back_cover: true
       toc_level: 2      
-      two_columns_level: 3
+      two_columns_level: 0
       #render_js: true
       #headless_chrome_path: google-chrome      
       output_path: document.pdf     
