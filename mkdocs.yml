@@ -41,6 +41,7 @@ theme:
     - navigation.top
     - toc.integrate
     - content.code.copy
+    - navigation.expand
   palette: 
     # Palette toggle for light mode
     - scheme: default
