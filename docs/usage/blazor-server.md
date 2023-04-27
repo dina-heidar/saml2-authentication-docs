@@ -1,127 +1,142 @@
 
-## App razor
+## Setup
 
-``` html title="App.razor"
-@inject NavigationManager UriHelper
+=== "App.razor"
 
-<CascadingAuthenticationState>
-    <Router AppAssembly="@typeof(Program).Assembly">
-        <Found Context="routeData">
-            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
-                <NotAuthorized>
-                    @{
-                        var returnUrl = UriHelper.ToBaseRelativePath(UriHelper.Uri);
-                        UriHelper.NavigateTo($"login?redirectUri={returnUrl}", forceLoad: true);
-                    }
-                </NotAuthorized>
-                <Authorizing>
-                    Loading...
-                </Authorizing>
-            </AuthorizeRouteView>
-        </Found>
-        <NotFound>
-            <LayoutView Layout="@typeof(MainLayout)">
-                <p>Sorry, there's nothing at this address.</p>
-            </LayoutView>
-        </NotFound>
-    </Router>
-</CascadingAuthenticationState> 
-```
+    ``` html title="App.razor"
 
-## Shared
+        @inject NavigationManager UriHelper
 
-``` html title="MainLayout.razor"
-@inherits LayoutComponentBase
+        <CascadingAuthenticationState>
+            <Router AppAssembly="@typeof(Program).Assembly">
+                <Found Context="routeData">
+                    <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+                        <NotAuthorized>
+                            @{
+                                var returnUrl = UriHelper.ToBaseRelativePath(UriHelper.Uri);
+                                UriHelper.NavigateTo($"login?redirectUri={returnUrl}", forceLoad: true);
+                            }
+                        </NotAuthorized>
+                        <Authorizing>
+                            Loading...
+                        </Authorizing>
+                    </AuthorizeRouteView>
+                </Found>
+                <NotFound>
+                    <LayoutView Layout="@typeof(MainLayout)">
+                        <p>Sorry, there's nothing at this address.</p>
+                    </LayoutView>
+                </NotFound>
+            </Router>
+        </CascadingAuthenticationState> 
+    ```
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
-    <main>
-        <div class="top-row px-4">
-            <AuthorizeView>
-                <Authorized>
-                    <form method="get" action="logout">
-                        <button type="submit" class="nav-link btn btn-link">Log out</button>
-                    </form>
-                </Authorized>
-                <NotAuthorized>
-                    <a href="login?redirectUri=/" class="nav-link btn btn-link">Log in</a>
-                </NotAuthorized>
-            </AuthorizeView>
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+=== "MainLayout.razor"
+
+    ``` html title="MainLayout.razor"
+
+        @inherits LayoutComponentBase
+
+        <div class="page">
+            <div class="sidebar">
+                <NavMenu />
+            </div>
+            <main>
+                <div class="top-row px-4">
+                    <AuthorizeView>
+                        <Authorized>
+                            <form method="get" action="logout">
+                                <button type="submit" class="nav-link btn btn-link">Log out</button>
+                            </form>
+                        </Authorized>
+                        <NotAuthorized>
+                            <a href="login?redirectUri=/" class="nav-link btn btn-link">Log in</a>
+                        </NotAuthorized>
+                    </AuthorizeView>
+                    <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+                </div>
+                <article class="content px-4">
+                    @Body
+                </article>
+            </main>
         </div>
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
-```
+    ```
 
-## Pages
+=== "Index.razor"
 
-``` html title="Index.razor"
-@page "/"
+    ``` html title="Index.razor"
 
-<PageTitle>Index</PageTitle>
+        @page "/"
 
-<AuthorizeView>
-    <Authorized>
-        <h1>Hello @context.User.Identity.Name!</h1>
+        <PageTitle>Index</PageTitle>
 
-        Welcome to your new app.
+        <AuthorizeView>
+            <Authorized>
+                <h1>Hello @context.User.Identity.Name!</h1>
 
-        <SurveyPrompt Title="How is Blazor working for you?" />
-    </Authorized>
-    <NotAuthorized>
-        <h1>Not Authorized, please log in</h1>
-    </NotAuthorized>
-</AuthorizeView>
-```
+                Welcome to your new app.
 
-``` html title="Login.cshtml"
-@page
-@model Sample.Pages.LoginModel
-@{
-}
-```
+                <SurveyPrompt Title="How is Blazor working for you?" />
+            </Authorized>
+            <NotAuthorized>
+                <h1>Not Authorized, please log in</h1>
+            </NotAuthorized>
+        </AuthorizeView>
+    ```
 
 
-``` cs title="Login.cshtml.cs"
+## Login
 
-public class LoginModel : PageModel
-{
-    public async Task OnGet(string redirectUri)
+=== "Login.cshtml"
+
+    ``` html title="Login.cshtml"
+
+        @page
+        @model Sample.Pages.LoginModel
+        @{
+        }
+    ```
+
+=== "Login.cshtml.cs"
+
+    ``` cs title="Login.cshtml.cs"
+
+    public class LoginModel : PageModel
     {
-        await HttpContext.ChallengeAsync("Saml2", new AuthenticationProperties { RedirectUri = redirectUri });
+        public async Task OnGet(string redirectUri)
+        {
+            await HttpContext.ChallengeAsync("Saml2", new AuthenticationProperties { RedirectUri = redirectUri });
+        }
     }
-}
 
-```
+    ```
 
+## Logout
 
+=== "Logout.cshtml"
 
-``` html title="Logout.cshtml"
-@page
-@model Sample.Pages.LogoutModel
-@{
-}
-```
+    ``` html title="Logout.cshtml"
+    @page
+    @model Sample.Pages.LogoutModel
+    @{
+    }
+    ```
 
-``` cs title="Login.cshtml.cs"
+=== "Logout.cshtml.cs"
 
-public class LogoutModel : PageModel
-{
-    public async Task<IActionResult> OnGetAsync()
+    ``` cs title="Logout.cshtml.cs"
+
+    public class LogoutModel : PageModel
     {
-        var result = await HttpContext.AuthenticateAsync();
-        var properties = result.Properties;
-        var provider = properties.Items[".AuthScheme"];
-        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-        await HttpContext.SignOutAsync(provider, properties);
+        public async Task<IActionResult> OnGetAsync()
+        {
+            var result = await HttpContext.AuthenticateAsync();
+            var properties = result.Properties;
+            var provider = properties.Items[".AuthScheme"];
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            await HttpContext.SignOutAsync(provider, properties);
 
-        return Redirect("/");
+            return Redirect("/");
+        }
     }
-}
-
-```
+    ```
