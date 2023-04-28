@@ -12,6 +12,7 @@ The code below will set up the saml2 options and will add authentication middlew
 
 !!! warning
 
+
     If you have an existing metadata file, go to [Existing metadata](#existing-metadata) section to set the Saml option values to the existing metadata values.
 
     If the metadata file is unavailabe, please contact the Identity Provider (IdP) admininstrator to request the configured values.
@@ -233,9 +234,6 @@ options.Events.OnRemoteFailure = context =>
 };
 ```
 
-
-
-
 ## Existing metadata
 
 Replace the Saml2 option value with the actual values in your Service Provider (SP) metadata file. The following is an example:
@@ -291,4 +289,3 @@ Replace the Saml2 option value with the actual values in your Service Provider (
 ???+ Certificates
 
     The `options.Signing` and `options.Encryption` certificate values must be the same ones set in the metadata signing and/or encryption section when the metadata file was created. 
-
