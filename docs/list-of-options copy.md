@@ -1,22 +1,41 @@
 ## Options
 
-The following are the list of options:
+The following are the list of available Saml2 options:
 
-### AssertionConsumerServiceIndex
-
-| Value type        | Requirement                           | Default value     | 
-| -----------       | ------------------------------------  |-----------        |
-| `ushort`          | optional                              |     `null`        |
-
-Gets or sets the index value of the assertion consumer service. If this is populated, it will override the Callback, AssertionConsumerServiceUrl and the ResponseProtocolBinding values. Only the 'AssertionConsumerServiceIndex' will be sent for the AuthnRequest.
-
-### AssertionConsumerServiceUrl
-
-| Value type        | Requirement                           | Default value     | 
-| -----------       | ------------------------------------  |-----------        |
-| `Uri`             | optional                              |                   |
-
-Gets or sets the assertion consumer service URL value. This will override the CallBack value. If the 'AssertionConsumerServiceIndex' is populated, the Callback, AssertionConsumerServiceUrl and the ResponseProtocolBinding values will not be sent within the AuthnRequest.
+<table>
+    <thead>
+        <tr>
+            <th>Option</th>
+            <th>Description</th>
+            <th>Value type</th>
+            <th>Requirement</th>
+            <th>Default value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><h3>AssertionConsumerServiceIndex</h3></td>
+            <td>Gets or sets the index value of the assertion consumer service. If this is populated, it will override the Callback, AssertionConsumerServiceUrl and the ResponseProtocolBinding values. Only the 'AssertionConsumerServiceIndex' will be sent for the AuthnRequest.</td>
+            <td><code>ushort</code></td>
+            <td>optional</td>
+            <td><code>null</code></td>
+        </tr>
+        <tr>
+            <td><h3>AssertionConsumerServiceUrl</h3></td>
+            <td>Gets or sets the assertion consumer service URL value. This will override the CallBack value. If the <code>AssertionConsumerServiceIndex</code> is populated, the Callback, AssertionConsumerServiceUrl and the ResponseProtocolBinding values will not be sent within the AuthnRequest.</td>
+            <td><code>Uri</code></td>
+            <td>optional</td>
+            <td><code></code></td>
+        </tr>
+        <tr>
+            <td><h3>AuthenticationMethod</h3></td>
+            <td>Gets or sets the authentication method value indicating whether [authentication request signed].The default value is <code>HTTP-Redirect</code>.</td>
+            <td><code>Saml2AuthenticationBehaviour</code></td>
+            <td>**required** _(already set by default)_</td>
+            <td><code>Saml2AuthenticationBehaviour.RedirectGet</code></td>
+        </tr>
+    </tbody>
+</table>
 
 ### AuthenticationMethod
 
