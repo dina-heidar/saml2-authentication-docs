@@ -59,6 +59,8 @@ theme:
         name: Switch to dark mode
 
 markdown_extensions:
+  - toc:
+      toc_depth: 5
   - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
@@ -90,15 +92,15 @@ extra_javascript:
 
 plugins:
    - search
-   - with-pdf:
-      author: Dina Heidar
-      cover_title: Saml2 Authentication
-      cover_subtitle: Technical Documentation v6.1.2  
-      cover_logo: ./assets/icon_500x500.png
-      toc_title: Table of contents
-      #back_cover: true
-      toc_level: 2      
-      two_columns_level: 0
-      #render_js: true
-      #headless_chrome_path: google-chrome      
-      output_path: saml2-authentication.pdf     
+  #  - with-pdf:
+  #     author: Dina Heidar
+  #     cover_title: Saml2 Authentication
+  #     cover_subtitle: Technical Documentation v6.1.2  
+  #     cover_logo: ./assets/icon_500x500.png
+  #     toc_title: Table of contents
+  #     #back_cover: true
+  #     toc_level: 2      
+  #     two_columns_level: 0
+  #     #render_js: true
+  #     #headless_chrome_path: google-chrome      
+  #     output_path: saml2-authentication.pdf     
