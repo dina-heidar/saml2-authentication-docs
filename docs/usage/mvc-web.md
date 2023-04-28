@@ -2,7 +2,22 @@
 
 === "Program.cs"
 
-    ``` cs title="Program.cs" linenums="1" hl_lines="18 19"
+    ``` cs title="Program.cs" linenums="1" hl_lines="10-13 33-34"
+
+    //code
+
+    //saml2-authentication configuration
+    builder.Services.AddAuthentication(sharedOptions =>
+    {
+        sharedOptions.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        sharedOptions.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        sharedOptions.DefaultChallengeScheme = Saml2Defaults.AuthenticationScheme;
+    })
+    .AddSaml2(options =>
+    {
+        //add saml2 options here
+    }
+    .AddCookie();
 
     var app = builder.Build();
 
