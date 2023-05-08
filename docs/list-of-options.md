@@ -214,8 +214,8 @@ Gets or sets the identity provider metadata. This can be an address or an xml fi
 | -----------         | --------------            |-----------                               |
 | `NameIdPolicy`      | **required**              |  <code>new NameIdPolicy                  |
 |                     |                           |    {                                     |
-|                     |                           |        Format = NameIDFormats.Persistent,|
-|                     |                           |        SpNameQualifier = null,           |
+|                     |                           |       Format = NameIDFormats.Unspecified,|
+|                     |                           |       SpNameQualifier = null,            |
 |                     |                           |       AllowCreate = true                 |
 |                     |                           |   };                                     |
 |                     |                           |  </code>                                 |
